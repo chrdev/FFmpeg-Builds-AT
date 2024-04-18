@@ -1,3 +1,16 @@
+# FFmpeg-Builds-AT
+
+A BtbN/FFmpeg-Builds fork focusing on Win64 versions with AudioToolbox abilities using wat4ff.
+
+Highlight: -c:a aac_at
+
+This fork drops these parts from its upstream:
+
+* openh264 - leaves libx264.
+* kvazaar - leaves libx265
+* aom - leaves dav1d, rav1e, and svtav1.
+
+# +++ Upstream README.md Follows +++
 # FFmpeg Static Auto-Builds
 
 Static Windows (x86_64) and Linux (x86_64) Builds of ffmpeg master and latest release branch.

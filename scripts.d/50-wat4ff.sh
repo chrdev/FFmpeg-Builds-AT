@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_REPO="https://github.com/chrdev/wat4ff.git"
-SCRIPT_COMMIT="aef4e8f1a61c61cc8075f856f9c92f15cd24ab6c"
+SCRIPT_COMMIT="1eb33b9d9bad6100d8936b983d03bf663f2d5cfe"
 
 ffbuild_enabled() {
     [[ $TARGET == win* ]]
