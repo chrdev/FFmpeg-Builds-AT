@@ -42,7 +42,12 @@ cat <<EOF >"$BUILD_SCRIPT"
         --extra-ldflags="\$FF_LDFLAGS" --extra-ldexeflags="\$FF_LDEXEFLAGS" \
         --cc="\$CC" --cxx="\$CXX" --ar="\$AR" --ranlib="\$RANLIB" --nm="\$NM" \
         --extra-version="\$(date +%Y%m%d)"
-    make -j\$(nproc) V=1
+    if [[ \$TARGET == win* ]]; then
+        export WAT4FF_TRUELD=\${CC}
+        make LD=\${FFBUILD_PREFIX}/wat4ff_ld -j\$(nproc) V=1
+    else
+        make -j\$(nproc) V=1
+    fi
     make install install-doc
 EOF
 
