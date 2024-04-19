@@ -10,7 +10,58 @@ This fork drops these parts from its upstream:
 * kvazaar - leaves libx265
 * aom - leaves dav1d, rav1e, and svtav1.
 
-# +++ Upstream README.md Follows +++
+## Setup
+
+Choose either one:
+
+* Install Apple iTunes using the same-bit-as-FFmpeg installer.
+
+* Or, Make a portable folder by extracting files from iTunes.
+  Like the way [qaac](https://github.com/nu774/qaac) does.  
+  On 64-bit OS, The folder structure ends up like this:
+```
+  |   ffmpeg.exe
+  \-- QTfiles64
+      |   ASL.dll
+      |   CoreAudioToolbox.dll
+      |   CoreFoundation.dll
+      |   icudt62.dll
+      |   libdispatch.dll
+      |   libicuin.dll
+      |   libicuuc.dll
+      |   objc.dll
+```
+
+* Or, highly unrecommended, install iTunes from the Store. By default no other
+  software can use DLLs within the app folder. You have to manually grant
+  permissions by using something like icacls.
+  
+## Tips
+
+For movies, use -q to control quality, ranging from 0 to 14, best quality to 
+smallest file.
+
+`-q 4` ~ 192 Kbps stereo, very high quality, recommended for most movies.  
+`-q 3` ~ 224 Kbps stereo, transparent, use it for opera or live.
+
+For low-res lectures, use `-profile:a 4 -b:a 48k` for HE-AAC at 48 Kbps.
+
+Examples
+```
+# movie:
+ffmpeg -i input.mkv -c:a aac_at -q 4 output.mkv
+
+# lecture for watching on TV:
+ffmpeg -i input.mkv -c:a aac_at -profile:a 4 -b:a 64k output.mkv
+
+# lecture for listening in car:
+ffmpeg -i input.mkv -map 0:a -c:a aac_at -profile:a 4 -b:a 48k output.m4a
+
+# To get some help
+ffmpeg -h encoder=aac_at
+```
+
+# +++ Upstream README.md Starts +++
 # FFmpeg Static Auto-Builds
 
 Static Windows (x86_64) and Linux (x86_64) Builds of ffmpeg master and latest release branch.
