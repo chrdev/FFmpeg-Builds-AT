@@ -162,7 +162,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [win64]
-        variant: [gpl,gpl 7.0,gpl-shared,gpl-shared 7.0]
+        variant: [gpl,gpl-shared]
     steps:
       - name: Free Disk-Space
         run: df -h && sudo apt-get clean && docker system prune -a -f && sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc && df -h
@@ -227,7 +227,7 @@ jobs:
       fail-fast: false
       matrix:
         target: [win64]
-        variant: [gpl,gpl 7.0,gpl-shared,gpl-shared 7.0]
+        variant: [gpl,gpl-shared]
     steps:
       - name: Free Disk-Space
         run: df -h && sudo apt-get clean && docker system prune -a -f && sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc && df -h
@@ -278,7 +278,7 @@ jobs:
           RELDATE="$(date +'%Y-%m-%d %H:%M')"
           NAME="Auto-Build $RELDATE"
           TAGNAME="autobuild-$(date +'%Y-%m-%d-%H-%M')"
-          gh release create "$TAGNAME" --target "master" --title "$NAME" artifacts/*.{zip,tar.xz}
+          gh release create "$TAGNAME" --target "master" --title "$NAME" artifacts/*.{7z,tar.xz}
           echo "tag_name=${TAGNAME}" >> $GITHUB_OUTPUT
           echo "rel_date=${RELDATE}" >> $GITHUB_OUTPUT
         env:
@@ -288,7 +288,7 @@ jobs:
           set -xe
           shopt -s nullglob
           mkdir latest_artifacts
-          ./util/repack_latest.sh latest_artifacts artifacts/*.{zip,tar.xz}
+          ./util/repack_latest.sh latest_artifacts artifacts/*.{7z,tar.xz}
           NAME="Latest Auto-Build (${{ steps.create_release.outputs.rel_date }})"
           TAGNAME="latest"
           gh release delete --cleanup-tag --yes "$TAGNAME" || true
