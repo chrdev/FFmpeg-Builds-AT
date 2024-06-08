@@ -71,7 +71,7 @@ ffbuild_depends() {
     echo xvid
     echo zimg
     echo zvbi
-
+    echo wat4ff
     echo rpath
 }
 
