@@ -4,7 +4,7 @@ SCRIPT_REPO="https://github.com/ultravideo/kvazaar.git"
 SCRIPT_COMMIT="526c8db10e263719532afe6b0d01cf570a5d1b20"
 
 ffbuild_enabled() {
-    return 0
+    return -1
 }
 
 ffbuild_dockerbuild() {
