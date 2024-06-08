@@ -14,23 +14,18 @@ ffbuild_depends() {
     echo lcevcdec
     echo libvorbis
     echo opencl
-    echo pulseaudio
     echo vmaf
-    echo x11
     echo vulkan
     echo amf
-    echo aom
     echo aribb24
     echo avisynth
     echo chromaprint
     echo dav1d
     echo davs2
     echo dvd
-    echo fdk-aac
     echo ffnvcodec
     echo frei0r
     echo gme
-    echo kvazaar
     echo libaribcaption
     echo libass
     echo libbluray
@@ -49,7 +44,6 @@ ffbuild_depends() {
     echo openal
     echo openapv
     echo opencore-amr
-    echo openh264
     echo openjpeg
     echo openmpt
     echo rav1e
@@ -72,7 +66,7 @@ ffbuild_depends() {
     echo xvid
     echo zimg
     echo zvbi
-
+    echo wat4ff
     echo rpath
 }
 
