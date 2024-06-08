@@ -4,7 +4,7 @@ SCRIPT_REPO="https://github.com/cisco/openh264.git"
 SCRIPT_COMMIT="cf3b514ba34a3a6c4f14b3ae8714325dd30bfa08"
 
 ffbuild_enabled() {
-    return 0
+    return -1
 }
 
 ffbuild_dockerbuild() {
