@@ -7,8 +7,6 @@ SCRIPT_BRANCH="SDL2"
 ffbuild_depends() {
     echo base
     echo libiconv
-    echo x11
-    echo pulseaudio
     echo libsamplerate
 }
 
