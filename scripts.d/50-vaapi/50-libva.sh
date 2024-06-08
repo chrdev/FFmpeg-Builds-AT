@@ -5,7 +5,6 @@ SCRIPT_COMMIT="72588120f6dbd93e3ac9eb1e228eb63af0a64285"
 
 ffbuild_depends() {
     echo base
-    echo x11
 }
 
 ffbuild_enabled() {
