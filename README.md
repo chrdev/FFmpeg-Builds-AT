@@ -1,3 +1,61 @@
+# FFmpeg-Builds-AT
+
+![Win64 Releases](https://github.com/chrdev/FFmpeg-Builds-AT/actions/workflows/build.yml/badge.svg)
+
+A FFMpeg build with AudioToolbox for Win64 , based on BtbN/FFmpeg-Builds.
+
+Supports `-c:a aac_at`.  
+Get help with `ffmpeg -h encoder=aac_at`
+
+Packages removed from the upstream:  
+* openh264 - use libx264.
+* kvazaar - use libx265.
+* aom - use dav1d, rav1e and svtav1.
+
+## Installation
+
+Choose one method of the two:
+
+* Install Apple iTunes using the official installer. No further steps needed.
+
+* Extract files from iTunes. See
+  [QTFiles for qaac](https://github.com/AnimMouse/QTFiles)  
+  The folder tree should be like:
+```
+  |   ffmpeg.exe
+  \-- QTfiles64
+      |   ASL.dll
+      |   CoreAudioToolbox.dll
+      |   CoreFoundation.dll
+      |   icudt62.dll
+      |   libdispatch.dll
+      |   libicuin.dll
+      |   libicuuc.dll
+      |   objc.dll
+```
+
+## Tips
+
+`-q 0` : the best quality.  
+`-q 14` : the smallest file.
+
+`-q 4` : ~192 Kbps stereo, very high quality, recommended for movies.  
+`-q 3` : ~224 Kbps stereo, transparent, recommended for music videos.  
+`-profile:a 4 -q 9` : ~64 Kbps HE-AAC.  
+`-profile:a 4 -b:a 64k` : 64 average-Kbps HE-AAC.
+
+Make a movie  
+`ffmpeg -i input.mkv -c:a aac_at -q 4 output.mkv`
+
+Make a lecture  
+`ffmpeg -i input.mkv -c:a aac_at -profile:a 4 -q 9 output.mkv`
+
+END fork README
+
+## Upstream README (Some info does NOT apply to this repo)
+
+[BtbN/FFmpeg-Builds](https://github.com/BtbN/FFmpeg-Builds)
+
 # FFmpeg Static Auto-Builds
 
 Static Windows (x86_64) and Linux (x86_64) Builds of ffmpeg master and latest release branch.
