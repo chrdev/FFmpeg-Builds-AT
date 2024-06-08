@@ -4,8 +4,7 @@ SCRIPT_REPO="https://aomedia.googlesource.com/aom"
 SCRIPT_COMMIT="a42ea198de1e1438f5ee462bd599d082c924bc35"
 
 ffbuild_enabled() {
-    [[ $TARGET == winarm64 ]] && return -1
-    return 0
+    return -1
 }
 
 ffbuild_dockerstage() {
